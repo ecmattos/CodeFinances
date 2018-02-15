@@ -1,0 +1,25 @@
+console.log('Inline e Hot Module funcionando !');
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * include Vue and Vue Resource. This gives a great starting point for
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+require('./bootstrap');
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+Vue.component('example', require('./components/Example.vue'));
+Vue.component('admin-menu', require('./components/AdminMenu.vue'));
+Vue.component('delete-action', require('./components/DeleteAction.vue'));
+
+Vue.component('modal', require('../../_default/components/Modal.vue')); //assets/_default/components
+
+const app = new Vue({
+    el: '#app'
+});
+console.log('teste');

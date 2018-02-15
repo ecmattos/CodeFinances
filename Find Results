@@ -1,0 +1,82 @@
+Searching 40570 files for "<modal" (case sensitive)
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/resources/views/admin/banks/index.blade.php:
+   46  										<a id="link-modal-{{ $bank->id }}"
+   47  											href="#{{ $modalId }}">Excluir</a>
+   48: 											<modal :modal="{{ json_encode(['id' => $modalId]) }}" style="display: none">
+   49  												<div slot="content">
+   50  													<h5>Mensagem de confirmação</h5>
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/storage/framework/views/fe6993e224966acbda361fc726029a3d21f37810.php:
+   45  										<a id="link-modal-<?php echo e($bank->id); ?>"
+   46  											href="#<?php echo e($modalId); ?>">Excluir</a>
+   47: 											<modal :modal="<?php echo e(json_encode(['id' => $modalId])); ?>" style="display: none">
+   48  												<div slot="content">
+   49  													<h5>Mensagem de confirmação</h5>
+
+2 matches across 2 files
+
+
+Searching 40570 files for "Band" (case sensitive)
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/body-parser/node_modules/http-errors/README.md:
+  116  |507        |InsufficientStorage          |
+  117  |508        |LoopDetected                 |
+  118: |509        |BandwidthLimitExceeded       |
+  119  |510        |NotExtended                  |
+  120  |511        |NetworkAuthenticationRequired|
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/builtin-status-codes/browser.js:
+   59    "507": "Insufficient Storage",
+   60    "508": "Loop Detected",
+   61:   "509": "Bandwidth Limit Exceeded",
+   62    "510": "Not Extended",
+   63    "511": "Network Authentication Required"
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/express/node_modules/http-errors/README.md:
+  116  |507        |InsufficientStorage          |
+  117  |508        |LoopDetected                 |
+  118: |509        |BandwidthLimitExceeded       |
+  119  |510        |NotExtended                  |
+  120  |511        |NetworkAuthenticationRequired|
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/gulp-uglify/node_modules/uglify-js/tools/domprops.json:
+ 3349          "in1",
+ 3350          "in2",
+ 3351:         "inBandMetadataTrackDispatchType",
+ 3352          "inRange",
+ 3353          "includes",
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/html-minifier/node_modules/uglify-js/tools/domprops.json:
+ 3349          "in1",
+ 3350          "in2",
+ 3351:         "inBandMetadataTrackDispatchType",
+ 3352          "inRange",
+ 3353          "includes",
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/http-errors/README.md:
+  113  |507        |InsufficientStorage          |
+  114  |508        |LoopDetected                 |
+  115: |509        |BandwidthLimitExceeded       |
+  116  |510        |NotExtended                  |
+  117  |511        |NetworkAuthenticationRequired|
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/node_modules/laravel-elixir-webpack-official/node_modules/uglify-js/tools/domprops.json:
+ 3349          "in1",
+ 3350          "in2",
+ 3351:         "inBandMetadataTrackDispatchType",
+ 3352          "inRange",
+ 3353          "includes",
+
+
+
+Searching 40570 files for "Bandária" (case sensitive)
+
+/home/eduardo/Projetos/Laravel_VueJS/CodeFinances/resources/assets/spa/js/components/Menu.vue:
+   55  				menus: [
+   56  					{
+   57: 						name: 'Contas Bancárias', routeName: 'bank-account.list'
+   58  					}
+   59  				],
+
+1 match in 1 file
