@@ -57,3 +57,13 @@ $factory->define(\CodeFinances\Models\CategoryRevenue::class, function (Faker\Ge
         'name' => $faker->name
     ];
 });
+
+$factory->define(\CodeFinances\Models\BillPay::class, function (Faker\Generator $faker) {
+    return [
+        'date_due' => $faker->date(),
+        'name' => $faker->word,
+        'value' => $faker->numberBetween(10,1000),
+        'done' => rand(0,1)
+    ];
+});
+

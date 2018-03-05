@@ -4,37 +4,30 @@ namespace CodeFinances\Http\Controllers\Api;
 
 use CodeFinances\Http\Controllers\Controller;
 use CodeFinances\Http\Controllers\Response;
-use CodeFinances\Http\Requests\BankAccountCreateRequest;
-use CodeFinances\Http\Requests\BankAccountUpdateRequest;
-use CodeFinances\Repositories\BankAccountRepository;
+use CodeFinances\Http\Requests\BillPayRequest;
+use CodeFinances\Repositories\BillPayRepository;
 /**
- * Class BankAccountsController.
+ * Class BillPaysController.
  *
  * @package namespace CodeFinances\Http\Controllers;
  */
-class BankAccountsController extends Controller
+class BillPaysController extends Controller
 {
     /**
-     * @var BankAccountRepository
+     * @var BillPayRepository
      */
     protected $repository;
 
 
     /**
-     * BankAccountsController constructor.
+     * BillPaysController constructor.
      *
-     * @param BankAccountRepository $repository
+     * @param BillPayRepository $repository
      */
-    public function __construct(BankAccountRepository $repository)
+    public function __construct(BillPayRepository $repository)
     {
         $this->repository = $repository;
     }
-
-    public function lists()
-    {
-        return $this->repository->skipPresenter()->all(['id', 'name', 'account']);
-    }
-
 
     /**
      * Display a listing of the resource.
@@ -43,27 +36,27 @@ class BankAccountsController extends Controller
      */
     public function index()
     {
-        $bankAccounts = $this->repository->paginate(3);
+        $BillPays = $this->repository->paginate(3);
 
-        #dd($bankAccount);
+        #dd($BillPay);
 
-        return $bankAccounts;
+        return $BillPays;
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BankAccountCreateRequest $request
+     * @param  BillPayRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(BankAccountCreateRequest $request)
+    public function store(BillPayRequest $request)
     {
-        $bankAccount = $this->repository->create($request->all());
+        $BillPay = $this->repository->create($request->all());
 
-        return response()->json($bankAccount, 201);
+        return response()->json($BillPay, 201);
     }
 
     /**
@@ -75,27 +68,27 @@ class BankAccountsController extends Controller
      */
     public function show($id)
     {
-        $bankAccount = $this->repository->find($id);
+        $BillPay = $this->repository->find($id);
         
-        return response()->json($bankAccount);
+        return response()->json($BillPay);
     }
 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BankAccountUpdateRequest $request
+     * @param  BillPayRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(BankAccountUpdateRequest $request, $id)
+    public function update(BillPayRequest $request, $id)
     {
-        $bankAccount = $this->repository->update($request->all(), $id);
+        $BillPay = $this->repository->update($request->all(), $id);
 
-        return response()->json($bankAccount);
+        return response()->json($BillPay);
     }
 
 

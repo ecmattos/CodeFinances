@@ -49,6 +49,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \CodeFinances\Repositories\CategoryExpenseRepository::class, 
             \CodeFinances\Repositories\CategoryExpenseRepositoryEloquent::class);
         
+        $this->app->bind(
+            \CodeFinances\Repositories\BillPayRepository::class, 
+            \CodeFinances\Repositories\BillPayRepositoryEloquent::class);
+        
         //:end-bindings:
 
     }

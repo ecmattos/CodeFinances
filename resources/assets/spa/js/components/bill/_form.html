@@ -1,0 +1,52 @@
+<div>
+    <form name="form" method="POST" @submit.prevent="submit">
+        <modal :modal="modalOptions">
+            <div slot="content">
+                <page-title>
+                    <h5>{{ title() }}</h5>
+                </page-title>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label class="active">Conta Bancária:</label>
+                        <input type="text" placeholder="Selecione um Banco" :id="bankAccountTextId()" autocomplete="off" :data-activates="bankAccountDropdownId()" data-beloworigin="true">
+                        <ul :id="bankAccountDropdownId()" class="dropdown-content ac-dropdown"></ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select-material :options="cpOptions" :selected.sync="bill.category_id"></select-material>
+                        <label class="active">Categoria de Despesa </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <label class="active">Vencimento:</label>
+                        <input type="text" v-model="bill.date_due" placeholder="Informe a data">
+                    </div>
+                    <div class="input-field col s6">
+                        <label class="active">Valor:</label>
+                        <input type="text" v-model="bill.value" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <label class="active">Nome:</label>
+                        <input type="text" v-model="bill.name" placeholder="">
+                    </div>
+                    <div class="input-field col s6">
+                        <label class="active">Valor:</label>
+                        <input type="text" v-model="bill.value" placeholder="">
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="checkbox" class="filled-ind" v-model="bankAccount.default" id="account_id"/>
+                        <label for="account_id">Padrão ?</label>
+                    </div>
+                </div> 
+            </div>
+        </modal>
+        
+    </form>
+</div>
+

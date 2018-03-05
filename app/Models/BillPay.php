@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
+use HipsterJazzbo\Landlord\BelongsToTenants;
+
 /**
- * Class Client.
+ * Class BillPay.
  *
  * @package namespace CodeFinances\Models;
  */
-class Client extends Model implements Transformable
+class BillPay extends Model implements Transformable
 {
     use TransformableTrait;
+    use BelongsToTenants;
 
     /**
      * The attributes that are mass assignable.
@@ -21,21 +24,10 @@ class Client extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-    	'name'
+    	'date_due',
+    	'name',
+    	'value',
+    	'done'
     ];
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
-
-    public function bankAccounts()
-    {
-        return $this->hasMany(BankAccount::class);
-    }
-
-    public function categoryExpenses()
-    {
-        return $this->hasMany(CategoryExpense::class);
-    }
 }

@@ -10,6 +10,8 @@ import CategoryListComponent from './components/category/CategoryList.vue';
 
 import PlanAccountComponent from './components/category/PlanAccount.vue';
 
+import BillPayListComponent from './components/bill/bill-pay/BillPayList.vue';
+
 export default {
 	'/login': {
 		name: 'auth.login',
@@ -60,4 +62,10 @@ export default {
         component: PlanAccountComponent,
         auth: true
     },
+
+    '/bill-pay': {
+		name: 'bill-pay.list',
+		component: BillPayListComponent,
+		auth: true
+	},
 }

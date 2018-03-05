@@ -157,6 +157,7 @@ export  default () => {
         edit(context, category){
             return context.state.resource.update({id: category.id}, category).then(response => {
                 context.commit('edit', response.data.data);
+                context.dispatch('query');
                 return response;
             });
         }

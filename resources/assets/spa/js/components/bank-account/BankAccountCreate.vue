@@ -47,6 +47,7 @@
                 });
             },
             initAutoComplete(){
+                let self = this;
                 $(document).ready(() => {
                     $('#bank-id').materialize_autocomplete({
                         limit: 10,
@@ -60,6 +61,9 @@
                             let mapBanks = store.getters['bank/mapBanks'];
                             let banks = mapBanks(value);
                             callback(value, banks);
+                        },
+                        onSelect(item){
+                            self.bankAccount.bank_id = item.id;
                         }
                     });
                 });
