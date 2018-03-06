@@ -5,14 +5,14 @@ import bank from './bank';
 import categoryModule from './category';
 import billModule from './bill';
 
-import {CategoryExpense, CategoryRevenue} from '../services/resources';
+import {CategoryExpense, CategoryRevenue, BillPay} from '../services/resources';
 
 let categoryRevenue = categoryModule(), categoryExpense = categoryModule();
 categoryRevenue.state.resource = CategoryRevenue;
 categoryExpense.state.resource = CategoryExpense;
 
 let billPay = billModule();
-billPay.state.resource = billPay;
+billPay.state.resource = BillPay;
 
 export default new Vuex.Store({
 	modules: {
