@@ -7,6 +7,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use CodeFinances\Repositories\BillPayRepository;
 use CodeFinances\Models\BillPay;
 use CodeFinances\Validators\BillPayValidator;
+use CodeFinances\Presenters\BillPayPresenter;
 
 /**
  * Class BillPayRepositoryEloquent.

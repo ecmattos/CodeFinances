@@ -14,7 +14,7 @@ const mutations = {
         state.bankAccounts = bankAccounts;
     },
     setLists(state, lists){
-        states.lists = lists;
+        state.lists = lists;
     },
     setDelete(state, bankAccount){
         state.bankAccountDelete = bankAccount;

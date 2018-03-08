@@ -26,7 +26,7 @@ export default {
                 id: 0,
                 date_due: '',
                 name: '',
-                value: '',
+                value: 0,
                 done: false,
                 bank_account_id: 0,
                 category_id: 0
@@ -51,7 +51,7 @@ export default {
             return store.state.bankAccount.lists;
         },
         categoriesFormatted(){
-            return store.getters[`${this.categoryNamespace()/categoriesFormatted}`];
+            return store.getters[`${this.categoryNamespace()}/categoriesFormatted`];
         }
     },
     watch: {
@@ -66,12 +66,37 @@ export default {
             return `done-${this._uid}`;
         },
         bankAccountTextId(){
-            return `bank_account-text-${this._uid}`;
+            return `bank-account-text-${this._uid}`;
         },
         bankAccountDropdownId(){
-            return `bank_account-dropdown-${this._uid}`;
+            return `bank-account-dropdown-${this._uid}`;
+        },
+        formId(){
+            return `form-bill-${this._uid}`;
+        },
+        validateCategory(){
+            let valid = this.$validator.validate('category_id', this.bill.category_id);
+            let parent = $(`#${this.formId()}`).find('[name="category_id"]').parent();
+            let label = parent.find('label');
+            let labelSelect2 = parent.find('.select2-selection select2-selection--single');
+            if(valid){
+                label.removeClass('label-error');
+                spanSelect2.removeClass('.select2-invalid');                                                  
+            }
+            else{
+                label.removeClass('label-error').addClass('label-error');
+                spanSelect2.removeClass('.select2-invalid').addClass('.select2-invalid'); 
+            }
+        },
+        initSelect2(){
+            let select = $(`#${this.formId()}`).find('[name="category_id"]');
+            let self = this;
+            select.on('select2:close', () => {
+                self.validateCategory();
+            });
         },
         initAutoComplete(){
+            let self = this;
             $(`#${this.bankAccountTextId()}`).materialize_autocomplete({
                 limit: 10,
                 multiple: {
@@ -82,13 +107,13 @@ export default {
                 },
                 getData(value, callback){
                     let mapBankAccounts = store.getters['bankAccount/mapBankAccounts'];
-                    let bankAccountss = mapBankAccounts(value);
-                    callback(value, banks);
+                    let bankAccounts = mapBankAccounts(value);
+                    callback(value, bankAccounts);
                 },
                 onSelect(item){
                     self.bill.bank_account_id = item.id;
                 }
-            });
+            });        
         },
         submit(){
             if(this.bill.id !== 0){
@@ -112,7 +137,7 @@ export default {
                 id: 0,
                 date_due: '',
                 name: '',
-                value: '',
+                value: 0,
                 done: false,
                 bank_account_id: 0,
                 category_id: 0

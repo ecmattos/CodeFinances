@@ -5,8 +5,10 @@
   import store from '../../../store/store';
     
   export default {
+    
     mixins: [billPayMixin],
-    created(){
+    
+    reated(){
       let self = this;
       this.modalOptions.options = {};
       this.modalOptions.options.ready = () => {
@@ -18,13 +20,13 @@
     },
     methods: {
       namespace(){
-        return 'billPay'
+        return 'billPay';
       },
       categoryNamespace(){
         return 'categoryExpense';
       },
       title(){
-        return 'Editar Pagamento'
+        return 'Editar Pagamento';
       },
       getBill(){
         let bill = store.getters[`${this.namespace()}/billByIndex`](this.index);

@@ -9,6 +9,9 @@
         mixins: [
             billPayMixin
         ],
+        ready(){
+            this.initSelect2();
+        },
         methods: {
             namespace(){
                 return 'billPay';
@@ -17,7 +20,7 @@
                 return 'categoryExpense';
             },
             title(){
-                return 'Novo Pagamento'
+                return 'Nova Despesa';
             }
         }
     }

@@ -23,9 +23,9 @@
                     <tbody>
                     <tr v-for="(index,o) in bills">
                         <td>&nbsp;{{ o.id }}</td>
-                        <td>{{ o.date_due }}</td>
+                        <td>{{ o.date_due | dateFormat }}</td>
                         <td>{{ o.name }}</td>
-                        <td>{{ o.value }}</td>
+                        <td>{{ o.value | moneyFormat }}</td>
                         <td>
                             <i class="material-icons green-text" v-if="o.default">check</i>
                         </td>
@@ -106,7 +106,8 @@
                         id: {label: '#',width: '7%'},
                         date_due: {label: 'Vencimento',width: '30%'},
                         name: {label: 'Nome',width: '30%'},
-                        value: {label: 'Valor', width: '13%'},
+                        value: {label: 'Valor', width: '8%'},
+                        done: {label: 'Paga', width: '5%'},
                     }
                 }
             };

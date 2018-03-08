@@ -1,5 +1,5 @@
 <div>
-    <form name="form" method="POST" @submit.prevent="submit">
+    <form id="formId() " name="form" method="POST" @submit.prevent="submit">
         <modal :modal="modalOptions">
             <div slot="content">
                 <page-title>
@@ -14,34 +14,48 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <select-material :options="cpOptions" :selected.sync="bill.category_id"></select-material>
-                        <label class="active">Categoria de Despesa </label>
+                        <select-material 
+                            :options="cpOptions" 
+                            :selected.sync="bill.category_id"
+                            name="category_id"
+                            v-validate
+                            data-vv-rules="required|min_value:1"
+                            data-vv-name="category_id"
+                            data-vv-as="Categoria">                            
+                        </select-material>
+                        <label class="active" 
+                            for="category_id" 
+                            :data-error="errors.first('category_id')">
+                            Categoria
+                        </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <label class="active">Vencimento:</label>
-                        <input type="text" v-model="bill.date_due" placeholder="Informe a data">
+                        <input type="text" 
+                            v-model="bill.date_due | dateFormat" 
+                            name="date_due" 
+                            placeholder="Informe a data" 
+                            class="validate" 
+                            v-validate 
+                            data-vv-as="Vencimento"
+                            data-vv-rules="required|date_format" 
+                            :class="{'invalid': errors.has('date_due')}">
+                        <label class="active" for="date_due" :data-error="errors.first('date_due')">Vencimento:</label>
                     </div>
                     <div class="input-field col s6">
-                        <label class="active">Valor:</label>
-                        <input type="text" v-model="bill.value" placeholder="">
+                        <input type="text" v-model="bill.value | moneyFormat" name="value" data-vv-as="Valor" placeholder="" class="validate" v-validate data-vv-rules="required|number_format:0.01" :class="{'invalid': errors.has('value')}">
+                        <label class="active" for="value" :data-error="errors.first('value')">Valor:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <label class="active">Nome:</label>
-                        <input type="text" v-model="bill.name" placeholder="">
+                        <input type="text" v-model="bill.name" id="name" name="name" data-vv-as="Nome"  placeholder="" class="validate" v-validate data-vv-rules="required" :class="{'invalid': errors.has('name')}">
+                        <label class="active" for="name" :data-error="errors.first('name')">Nome:</label>
                     </div>
                     <div class="input-field col s6">
-                        <label class="active">Valor:</label>
-                        <input type="text" v-model="bill.value" placeholder="">
-                    </div>
-                </div> 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="checkbox" class="filled-ind" v-model="bankAccount.default" id="account_id"/>
-                        <label for="account_id">Padrão ?</label>
+                        <input type="checkbox" class="filled-ind" v-model="bill.default" id="account_id"/>
+                        <label for="account_id">Paga ?</label>
                     </div>
                 </div> 
             </div>
